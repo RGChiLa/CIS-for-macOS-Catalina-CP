@@ -18,9 +18,9 @@ Set as Data Type "Integer."
 Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records count of items to Jamf Pro inventory record. Usable with smart group logic (2.6_Audit_Count greater than 0) to immediately determine computers not in compliance.
 
 Add the following scripts to your Jamf Pro  
-* 1_Set_Organization_Priorities  
-* 2_Security_Audit_Compliance
-* 3_Security_Remediation
+* 1_Set_Organization_Priorities - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/75
+* 2_Security_Audit_Compliance - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/76
+* 3_Security_Remediation - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/77
 
 Script __1_Set_Organization_Priorities__ will need additional configuration prior to deployment.
 
