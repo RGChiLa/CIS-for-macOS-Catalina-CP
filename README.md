@@ -35,7 +35,7 @@ https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
 
 Configure the following variables in the script:
 
-The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist by default.
+The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist.
 
 * Create a single Jamf Policy using all three scripts.  
 1_Set_Organization_Priorities - Script Priority: Before  
