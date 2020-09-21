@@ -31,13 +31,12 @@ Admins set organizational compliance for each listed item, which gets written to
 OrgScore1_1="true" or OrgScore1_1="false"
 
 ### 2_Security_Audit_Complaince
-https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
 
 Configure the following variables in the script:
 
 The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist.
 
-* Create a single Jamf Policy using all three scripts.  
+* Create a single Jamf Policy using all three scripts. - https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
 1_Set_Organization_Priorities - Script Priority: Before  
 2_Security_Audit_Compliance Script Priority: Before  
 3_Security_Remediation - Script Priority: Before  
