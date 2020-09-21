@@ -5,12 +5,14 @@ Refers to document CIS_Apple_OSX_10.15_Benchmark_v1.0.0.pdf, available at https:
 
 ## USAGE:
 * Create Extension Attributes using the following scripts:
-### 2.5_Audit_List Extension Attribute - https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=66&o=r
+### 2.5_Audit_List Extension Attribute
+https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=66&o=r
 
 Set as Data Type "String."
 Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records to Jamf Pro inventory record.
 
-### 2.6_Audit_Count Extension Attribute - https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=67&o=r
+### 2.6_Audit_Count Extension Attribute
+https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=67&o=r
 
 Set as Data Type "Integer." 
 Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records count of items to Jamf Pro inventory record. Usable with smart group logic (2.6_Audit_Count greater than 0) to immediately determine computers not in compliance.
@@ -28,7 +30,8 @@ Admins set organizational compliance for each listed item, which gets written to
 
 OrgScore1_1="true" or OrgScore1_1="false"
 
-### 2_Security_Audit_Complaince - https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
+### 2_Security_Audit_Complaince
+https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
 
 Configure the following variables in the script:
 
