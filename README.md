@@ -8,12 +8,12 @@ Refers to document CIS_Apple_OSX_10.15_Benchmark_v1.0.0.pdf, available at https:
 ### 2.5_Audit_List Extension Attribute
 
 Set as Data Type "String."
-Reads contents of /Library/Application Support/SecurityScoring/org_audit file and records to Jamf Pro inventory record.
+Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records to Jamf Pro inventory record.
 
 ### 2.6_Audit_Count Extension Attribute
 
 Set as Data Type "Integer." 
-Reads contents of /Library/Application Support/SecurityScoring/org_audit file and records count of items to Jamf Pro inventory record. Usable with smart group logic (2.6_Audit_Count greater than 0) to immediately determine computers not in compliance.
+Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records count of items to Jamf Pro inventory record. Usable with smart group logic (2.6_Audit_Count greater than 0) to immediately determine computers not in compliance.
 
 Add the following scripts to your Jamf Pro  
 * 1_Set_Organization_Priorities  
@@ -32,7 +32,7 @@ OrgScore1_1="true" or OrgScore1_1="false"
 
 Configure the following variables in the script:
 
-The script writes to /Library/Application Support/SecurityScoring/org_security_score.plist by default.
+The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist by default.
 
 * Create a single Jamf Policy using all three scripts.  
 1_Set_Organization_Priorities - Script Priority: Before  
@@ -76,15 +76,15 @@ NOTES:
 ### 2_Security_Audit_Compliance
 
 Run this before and after 3_Security_Remediation to audit the Remediation
-Reads the plist at /Library/Application Support/SecurityScoring/org_security_score.plist. For items prioritized (listed as "true,") the script queries against the current computer/user environment to determine compliance against each item.
+Reads the plist at /Library/Reward Gateway/SecurityScoring/org_security_score.plist. For items prioritized (listed as "true,") the script queries against the current computer/user environment to determine compliance against each item.
 
-Non-compliant items are recorded at /Library/Application Support/SecurityScoring/org_audit
+Non-compliant items are recorded at /Library/Reward Gateway/SecurityScoring/org_audit
 
 
 ### 3_Security_Remediation
 
 Run 2_Security_Audit_Compliance after to audit the Remediation
-Reads the plist at /Library/Application Support/SecurityScoring/org_security_score.plist. For items prioritized (listed as "true,") the script applies recommended remediation actions for the client/user.
+Reads the plist at /Library/Reward Gateway/SecurityScoring/org_security_score.plist. For items prioritized (listed as "true,") the script applies recommended remediation actions for the client/user.
 
 SCORED CIS EXCEPTIONS:
 
