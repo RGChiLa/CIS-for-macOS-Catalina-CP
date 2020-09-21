@@ -57,10 +57,10 @@ logFile="/Library/RewardGateway/SecurityScoring/remediation.log"
 
 if [[ $(tail -n 1 "$logFile") = *"Remediation complete" ]]; then
 	echo "Append to existing logFile"
- 	echo "$(date -u)" "🟢 Beginning Audit" >> "$logFile"
+ 	echo "$(date -u)" ">>> BEGINNING AUDIT <<<" >> "$logFile"
 else
  	echo "Create new logFile"
- 	echo "$(date -u)" "🟢 Beginning Audit" > "$logFile"	
+ 	echo "$(date -u)" ">>> BEGINNING AUDIT <<<" > "$logFile"	
 fi
 
 if [[ ! -e $plistlocation ]]; then
@@ -1461,5 +1461,5 @@ if [ "$Audit6_3" = "1" ]; then
 	fi
 fi
 
-echo "$(date -u)" "🔴 Audit complete" | tee -a "$logFile"
+echo "$(date -u)" ">>> AUDIT COMPLETE <<<" | tee -a "$logFile"
 exit 0
