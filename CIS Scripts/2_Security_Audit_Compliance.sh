@@ -47,20 +47,20 @@ Defaults="/usr/bin/defaults"
 # DO NOT EDIT BELOW THIS LINE
 ####################################################################################################
 
-plistlocation="/Library/Application Support/SecurityScoring/org_security_score.plist"
-auditfilelocation="/Library/Application Support/SecurityScoring/org_audit"
+plistlocation="/Library/RewardGateway/SecurityScoring/org_security_score.plist"
+auditfilelocation="/Library/RewardGateway/SecurityScoring/org_audit"
 currentUser="$(python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')"
 hardwareUUID="$(/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID" | awk -F ": " '{print $2}' | xargs)"
 
-logFile="/Library/Application Support/SecurityScoring/remediation.log"
+logFile="/Library/RewardGateway/SecurityScoring/remediation.log"
 
 
 if [[ $(tail -n 1 "$logFile") = *"Remediation complete" ]]; then
 	echo "Append to existing logFile"
- 	echo "$(date -u)" "Beginning Audit" >> "$logFile"
+ 	echo "$(date -u)" "🟢 Beginning Audit" >> "$logFile"
 else
  	echo "Create new logFile"
- 	echo "$(date -u)" "Beginning Audit" > "$logFile"	
+ 	echo "$(date -u)" "🟢 Beginning Audit" > "$logFile"	
 fi
 
 if [[ ! -e $plistlocation ]]; then
@@ -249,22 +249,22 @@ Audit2_2_2="$($Defaults read "$plistlocation" OrgScore2_2_2)"
 # sync time 
 # fi
 
-# 2.3.1 Set an inactivity interval of 20 minutes or less for the screen saver 
-# Configuration Profile - LoginWindow payload > Options > Start screen saver after: 20 Minutes of Inactivity
+# 2.3.1 Set an inactivity interval of 5 minutes for the screen saver 
+# Configuration Profile - LoginWindow payload > Options > Start screen saver after: 5 Minutes of Inactivity
 # Verify organizational score
 Audit2_3_1="$($Defaults read "$plistlocation" OrgScore2_3_1)"
 # If organizational score is 1 or true, check status of client
 if [ "$Audit2_3_1" = "1" ]; then
 	CP_screenSaverTime="$(/usr/sbin/system_profiler SPConfigurationProfileDataType | /usr/bin/grep idleTime | awk '{print $3-0}')"
 	# If client fails, then note category in audit file
-	if [[ "$CP_screenSaverTime" -le "1200" ]] && [[ "$CP_screenSaverTime" != "" ]]; then
+	if [[ "$CP_screenSaverTime" -le "300" ]] && [[ "$CP_screenSaverTime" != "" ]]; then
 		echo "$(date -u)" "2.3.1 passed cp" | tee -a "$logFile"
 		$Defaults write "$plistlocation" OrgScore2_3_1 -bool false; else
 		screenSaverTime="$($Defaults read /Users/"$currentUser"/Library/Preferences/ByHost/com.apple.screensaver."$hardwareUUID".plist idleTime)"
-		if [[ "$screenSaverTime" -le "1200" ]] && [[ "$screenSaverTime" != "" ]]; then
+		if [[ "$screenSaverTime" -le "300" ]] && [[ "$screenSaverTime" != "" ]]; then
 			echo "$(date -u)" "2.3.1 passed" | tee -a "$logFile"
 			$Defaults write "$plistlocation" OrgScore2_3_1 -bool false; else
-			echo "* 2.3.1 Set an inactivity interval of 20 minutes or less for the screen saver" >> "$auditfilelocation"
+			echo "* 2.3.1 Set an inactivity interval of 5 minutes for the screen saver" >> "$auditfilelocation"
 			echo "$(date -u)" "2.3.1 fix" | tee -a "$logFile"
 		fi
 	fi
@@ -1461,5 +1461,5 @@ if [ "$Audit6_3" = "1" ]; then
 	fi
 fi
 
-echo "$(date -u)" "Audit complete" | tee -a "$logFile"
+echo "$(date -u)" "🔴 Audit complete" | tee -a "$logFile"
 exit 0

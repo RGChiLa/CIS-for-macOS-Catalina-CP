@@ -40,12 +40,12 @@
 # For "true" items, runs query for current computer/user compliance.
 # Non-compliant items are logged to /Library/Application Support/SecurityScoring/org_audit
 
-plistlocation="/Library/Application Support/SecurityScoring/org_security_score.plist"
+plistlocation="/Library/RewardGateway/SecurityScoring/org_security_score.plist"
 currentUser="$(python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')"
 currentUserID="$(/usr/bin/id -u $currentUser)"
 hardwareUUID="$(/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID" | awk -F ": " '{print $2}' | xargs)"
 
-logFile="/Library/Application Support/SecurityScoring/remediation.log"
+logFile="/Library/RewardGateway/SecurityScoring/remediation.log"
 # Append to existing logFile
 echo "$(date -u)" "Beginning remediation" >> "$logFile"
 # Create new logFile
@@ -168,13 +168,13 @@ if [ "$Audit2_2_2" = "1" ]; then
 	echo "$(date -u)" "2.2.2 enforced" | tee -a "$logFile"
 fi
 
-# 2.3.1 Set an inactivity interval of 20 minutes or less for the screen saver 
+# 2.3.1 Set an inactivity interval of 5 minutes or less for the screen saver 
 # Verify organizational score
 Audit2_3_1="$(defaults read "$plistlocation" OrgScore2_3_1)"
 # If organizational score is 1 or true, check status of client
 # If client fails, then remediate
 if [ "$Audit2_3_1" = "1" ]; then
-	defaults write /Users/"$currentUser"/Library/Preferences/ByHost/com.apple.screensaver."$hardwareUUID".plist idleTime -int 1200
+	defaults write /Users/"$currentUser"/Library/Preferences/ByHost/com.apple.screensaver."$hardwareUUID".plist idleTime -int 300
 	echo "$(date -u)" "2.3.1 remediated" | tee -a "$logFile"
 fi
 
