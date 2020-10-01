@@ -6,19 +6,21 @@ Refers to document CIS_Apple_OSX_10.15_Benchmark_v1.0.0.pdf, available at https:
 ## USAGE:
 * Create Extension Attributes using the following scripts:
 ### 2.5_Audit_List Extension Attribute
+https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=66&o=r
 
 Set as Data Type "String."
 Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records to Jamf Pro inventory record.
 
 ### 2.6_Audit_Count Extension Attribute
+https://rewardgateway.jamfcloud.com/computerExtensionAttributes.html?id=67&o=r
 
 Set as Data Type "Integer." 
 Reads contents of /Library/Reward Gateway/SecurityScoring/org_audit file and records count of items to Jamf Pro inventory record. Usable with smart group logic (2.6_Audit_Count greater than 0) to immediately determine computers not in compliance.
 
 Add the following scripts to your Jamf Pro  
-* 1_Set_Organization_Priorities  
-* 2_Security_Audit_Compliance
-* 3_Security_Remediation
+* 1_Set_Organization_Priorities - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/75
+* 2_Security_Audit_Compliance - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/76
+* 3_Security_Remediation - https://rewardgateway.jamfcloud.com/view/settings/computer/scripts/77
 
 Script __1_Set_Organization_Priorities__ will need additional configuration prior to deployment.
 
@@ -32,9 +34,10 @@ OrgScore1_1="true" or OrgScore1_1="false"
 
 Configure the following variables in the script:
 
-The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist by default.
+The script writes to /Library/Reward Gateway/SecurityScoring/org_security_score.plist.
 
-* Create a single Jamf Policy using all three scripts.  
+* Create a single Jamf Policy using all three scripts. - https://rewardgateway.jamfcloud.com/policies.html?id=239&o=r
+
 1_Set_Organization_Priorities - Script Priority: Before  
 2_Security_Audit_Compliance Script Priority: Before  
 3_Security_Remediation - Script Priority: Before  
