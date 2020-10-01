@@ -86,8 +86,8 @@ OrgScore1_6="true"
 # OrgScore1_6="false"
 
 # 2.1.1 Turn off Bluetooth, if no paired devices exist 
-OrgScore2_1_1="true"
-# OrgScore2_1_1="false"
+# OrgScore2_1_1="true"
+OrgScore2_1_1="false"
 
 ## 2.1.2 Turn off Bluetooth "Discoverable" mode when not pairing devices - not applicable to 10.9 and higher.
 ## Starting with OS X (10.9) Bluetooth is only set to Discoverable when the Bluetooth System Preference is selected. 
@@ -113,8 +113,8 @@ OrgScore2_3_1="true"
 
 # 2.3.2 Secure screen saver corners 
 # Configuration Profile - Custom payload > com.apple.dock > wvous-tl-corner=0, wvous-br-corner=5, wvous-bl-corner=0, wvous-tr-corner=0
-# OrgScore2_3_2="true"
-OrgScore2_3_2="false"
+OrgScore2_3_2="true"
+# OrgScore2_3_2="false"
 
 # 2.3.3 Set a screen corner to Start Screen Saver 
 # Configuration Profile - Custom payload > com.apple.dock > wvous-tl-corner=0, wvous-br-corner=5, wvous-bl-corner=0, wvous-tr-corner=0
@@ -177,8 +177,8 @@ OrgScore2_4_11="true"
 # OrgScore2_4_11="false"
 
 # 2.5.1.1 Enable FileVault
-OrgScore2_5_1_1="true"
-# OrgScore2_5_1_1="false"
+# OrgScore2_5_1_1="true"
+OrgScore2_5_1_1="false"
 
 # 2.5.1.2 Ensure all user storage APFS volumes are encrypted (Not Scored)
 # OrgScore2_5_1_2="true"
@@ -263,8 +263,8 @@ OrgScore2_8="false"
 
 # 2.9 Enable Secure Keyboard Entry in terminal.app 
 # Configuration Profile - Custom payload > com.apple.Terminal > SecureKeyboardEntry=true
-# OrgScore2_9="true"
-OrgScore2_9="false"
+OrgScore2_9="true"
+# OrgScore2_9="false"
 
 ## 2.10 Securely delete files as needed (Not Scored)
 ## With the wider use of FileVault and other encryption methods and the growing use of Solid State Drives
@@ -280,37 +280,37 @@ OrgScore2_11="false"
 OrgScore2_12="false"
 
 # 3.1 Enable security Auditing
-# OrgScore3_1="true"
-OrgScore3_1="false"
+OrgScore3_1="true"
+# OrgScore3_1="false"
 
 # 3.2 Configure Security Auditing Flags per local organizational requirements (Not Scored)
-# OrgScore3_2="true"
-OrgScore3_2="false"
+OrgScore3_2="true"
+# OrgScore3_2="false"
 
 # 3.3 Ensure security auditing retention
-# OrgScore3_3="true"
-OrgScore3_3="false"
+OrgScore3_3="true"
+# OrgScore3_3="false"
 
 # 3.4 Control access to audit records
 # OrgScore3_4="true"
 OrgScore3_4="false"
 
 # 3.5 Retain install.log for 365 or more days 
-# OrgScore3_5="true"
-OrgScore3_5="false"
+OrgScore3_5="true"
+# OrgScore3_5="false"
 
 # 3.6 Ensure Firewall is configured to log
-# OrgScore3_6="true"
-OrgScore3_6="false"
+OrgScore3_6="true"
+# OrgScore3_6="false"
 
 # 4.1 Disable Bonjour advertising service 
 # Configuration Profile - Custom payload > com.apple.mDNSResponder > NoMulticastAdvertisements=true
-# OrgScore4_1="true"
-OrgScore4_1="false"
+OrgScore4_1="true"
+# OrgScore4_1="false"
 
 # 4.2 Enable "Show Wi-Fi status in menu bar" 
-# OrgScore4_2="true"
-OrgScore4_2="false"
+OrgScore4_2="true"
+# OrgScore4_2="false"
 
 # 4.4 Ensure http server is not running 
 # OrgScore4_4="true"
@@ -370,13 +370,13 @@ OrgScore5_7="false"
 
 # 5.8 Disable automatic login 
 # Configuration Profile - LoginWindow payload > Options > Disable automatic login (checked)
-# OrgScore5_8="true"
-OrgScore5_8="false"
+OrgScore5_8="true"
+# OrgScore5_8="false"
 
 # 5.9 Require a password to wake the computer from sleep or screen saver
 # Configuration Profile - Security and Privacy payload > General > Require password * after sleep or screen saver begins (checked)
-# OrgScore5_9="true"
-OrgScore5_9="false"
+OrgScore5_9="true"
+# OrgScore5_9="false"
 
 # 5.10 Ensure system is set to hibernate and destroy FileVault key
 # OrgScore5_10="true"
@@ -405,50 +405,50 @@ OrgScore5_14="false"
 
 # 5.16 Disable Fast User Switching (Not Scored)
 # Configuration Profile - LoginWindow payload > Options > Enable Fast User Switching (unchecked)
-# OrgScore5_16="true"
-OrgScore5_16="false"
+OrgScore5_16="true"
+# OrgScore5_16="false"
 
 ## 5.17 Secure individual keychains and items (Not Scored)
 
 ## 5.18 Create specialized keychains for different purposes (Not Scored)
 
 # 5.19 System Integrity Protection status
-# OrgScore5_19="true"
-OrgScore5_19="false"
+OrgScore5_19="true"
+# OrgScore5_19="false"
 
 # 6.1.1 Display login window as name and password 
 # Configuration Profile - LoginWindow payload > Window > LOGIN PROMPT > Name and password text fields (selected)
-# OrgScore6_1_1="true"
-OrgScore6_1_1="false"
+OrgScore6_1_1="true"
+# OrgScore6_1_1="false"
 
 # 6.1.2 Disable "Show password hints" 
 # Configuration Profile - LoginWindow payload > Options > Show password hint when needed and available (unchecked - Yes this is backwards)
-# OrgScore6_1_2="true"
-OrgScore6_1_2="false"
+OrgScore6_1_2="true"
+# OrgScore6_1_2="false"
 
 # 6.1.3 Disable guest account 
 # Configuration Profile - LoginWindow payload > Options > Allow Guest User (unchecked)
-# OrgScore6_1_3="true"
-OrgScore6_1_3="false"
+OrgScore6_1_3="true"
+# OrgScore6_1_3="false"
 
 # 6.1.4 Disable "Allow guests to connect to shared folders" 
 # Configuration Profile - 6.1.4 Disable Allow guests to connect to shared folders - Custom payload > com.apple.AppleFileServer guestAccess=false, com.apple.smb.server AllowGuestAccess=false
-# OrgScore6_1_4="true"
-OrgScore6_1_4="false"
+OrgScore6_1_4="true"
+# OrgScore6_1_4="false"
 
 # 6.1.5 Remove Guest home folder
-# OrgScore6_1_5="true"
-OrgScore6_1_5="false"
+OrgScore6_1_5="true"
+# OrgScore6_1_5="false"
 
 # 6.2 Turn on filename extensions
 # Does not work as a Configuration Profile - .GlobalPreferences.plist
-# OrgScore6_2="true"
-OrgScore6_2="false"
+OrgScore6_2="true"
+# OrgScore6_2="false"
 
 # 6.3 Disable the automatic run of safe files in Safari
 # Configuration Profile - Custom payload > com.apple.Safari > AutoOpenSafeDownloads=false
-# OrgScore6_3="true"
-OrgScore6_3="false"
+OrgScore6_3="true"
+# OrgScore6_3="false"
 
 ## 6.4 Use parental controls for systems that are not centrally managed (Not Scored)
 
