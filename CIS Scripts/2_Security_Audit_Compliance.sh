@@ -55,12 +55,12 @@ hardwareUUID="$(/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UU
 logFile="/Library/RewardGateway/SecurityScoring/remediation.log"
 
 
-if [[ $(tail -n 1 "$logFile") = *"Remediation complete" ]]; then
+if [[ $(tail -n 1 "$logFile") = *">>> Remediation complete <<<" ]]; then
 	echo "Append to existing logFile"
- 	echo "$(date -u)" ">>> BEGINNING AUDIT <<<" >> "$logFile"
+ 	echo "$(date -u)" ">>> Beginning Audit <<<" >> "$logFile"
 else
  	echo "Create new logFile"
- 	echo "$(date -u)" ">>> BEGINNING AUDIT <<<" > "$logFile"	
+ 	echo "$(date -u)" ">>> Beginning Audit <<<" > "$logFile"	
 fi
 
 if [[ ! -e $plistlocation ]]; then
@@ -1461,5 +1461,6 @@ if [ "$Audit6_3" = "1" ]; then
 	fi
 fi
 
-echo "$(date -u)" ">>> AUDIT COMPLETE <<<" | tee -a "$logFile"
+echo "$(date -u)" ">>> Audit complete <<<" | tee -a "$logFile"
+echo "" | tee -a "$logFile"
 exit 0
